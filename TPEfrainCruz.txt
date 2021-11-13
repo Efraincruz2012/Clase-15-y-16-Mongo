@@ -1,0 +1,206 @@
+
+
+
+
+Crear una base de datos llamada Ecommerce y que contenga dos collection producto y mensajes.
+
+> db.createCollection('mensajes')
+{ "ok" : 1 }
+> db.createCollection('productos')
+{ "ok" : 1 }
+>
+
+---------------------------------------------------------------------------------------------------------------------
+1) Agregar 10 documentos con valores distintos a las colecciones mensajes y productos. El formato de los documentos debe estar en correspondencia con el que venimos utilizando en el entregable con base de datos MariaDB.
+
+   
+
+db.mensajes.insertMany([
+
+{id: 1,SMS:'mensaje_1'},{id: 2,SMS:'mensaje_2'},{id:3,SMS:'mensaje_3'},{id: 4,SMS:'mensaje_4'},{id: 5,SMS:'mensaje_5'},{id: 6,SMS:'mensaje_6'},{id: 7,SMS:'mensaje_7'},{id: 8,SMS:'mensaje_8'},{id: 9,SMS:'mensaje_9'},{id: 10,SMS:'mensaje_10'}
+
+])
+
+db.mensajes.insertMany([  {id: 1,SMS:'mensaje_1'},{id: 2,SMS:'mensaje_2'},{id:3,SMS:'mensaje_3'},{id: 4,SMS:'mensaje_4'},{id: 5,SMS:'mensaje_5'},{id: 6,SMS:'mensaje_6'},{id: 7,SMS:'mensaje_7'},{id: 8,SMS:'mensaje_8'},{id: 9,SMS:'mensaje_9'},{id: 10,SMS:'mensaje_10'}  ])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("618f24e1152fac149fe54908"),
+                ObjectId("618f24e1152fac149fe54909"),
+                ObjectId("618f24e1152fac149fe5490a"),
+                ObjectId("618f24e1152fac149fe5490b"),
+                ObjectId("618f24e1152fac149fe5490c"),
+                ObjectId("618f24e1152fac149fe5490d"),
+                ObjectId("618f24e1152fac149fe5490e"),
+                ObjectId("618f24e1152fac149fe5490f"),
+                ObjectId("618f24e1152fac149fe54910"),
+                ObjectId("618f24e1152fac149fe54911")
+        ]
+}
+
+
+
+> db.productos.insertMany([
+...
+... {id: 1, title: 'Articulo', price: 100},{id: 2, title: 'Articulo', price: 200},{id: 3, title: 'Articulo', price: 300},
+... {id: 4, title: 'Articulo', price: 400},{id: 5, title: 'Articulo', price: 500},
+... {id: 6, title: 'Articulo', price: 600},
+... {id: 7, title: 'Articulo', price: 700},
+... {id: 8, title: 'Articulo', price: 800},
+... {id: 9, title: 'Articulo', price: 900},
+... {id: 10, title: 'Articulo', price: 1000}
+...
+... ])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("618f26b3152fac149fe54912"),
+                ObjectId("618f26b3152fac149fe54913"),
+                ObjectId("618f26b3152fac149fe54914"),
+                ObjectId("618f26b3152fac149fe54915"),
+                ObjectId("618f26b3152fac149fe54916"),
+                ObjectId("618f26b3152fac149fe54917"),
+                ObjectId("618f26b3152fac149fe54918"),
+                ObjectId("618f26b3152fac149fe54919"),
+                ObjectId("618f26b3152fac149fe5491a"),
+                ObjectId("618f26b3152fac149fe5491b")
+        ]
+}
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+   2) Definir las claves de los documentos en relaci�n a los campos de las tablas de esa base. En el caso de los productos, poner valores al campo precio entre los 100 y 5000 pesos(eligiendo valores intermedios, ej: 120, 580, 900, 1280, 1700, 2300, 2860, 3350, 4320, 4990).
+
+    Listar todos los documentos en cada colecci�n.
+
+    Resoluci�n
+
+
+> db.mensajes.find()
+{ "_id" : ObjectId("618f24e1152fac149fe54908"), "id" : 1, "SMS" : "mensaje_1" }
+{ "_id" : ObjectId("618f24e1152fac149fe54909"), "id" : 2, "SMS" : "mensaje_2" }
+{ "_id" : ObjectId("618f24e1152fac149fe5490a"), "id" : 3, "SMS" : "mensaje_3" }
+{ "_id" : ObjectId("618f24e1152fac149fe5490b"), "id" : 4, "SMS" : "mensaje_4" }
+{ "_id" : ObjectId("618f24e1152fac149fe5490c"), "id" : 5, "SMS" : "mensaje_5" }
+{ "_id" : ObjectId("618f24e1152fac149fe5490d"), "id" : 6, "SMS" : "mensaje_6" }
+{ "_id" : ObjectId("618f24e1152fac149fe5490e"), "id" : 7, "SMS" : "mensaje_7" }
+{ "_id" : ObjectId("618f24e1152fac149fe5490f"), "id" : 8, "SMS" : "mensaje_8" }
+{ "_id" : ObjectId("618f24e1152fac149fe54910"), "id" : 9, "SMS" : "mensaje_9" }
+{ "_id" : ObjectId("618f24e1152fac149fe54911"), "id" : 10, "SMS" : "mensaje_10" }
+> db.productos.find()
+{ "_id" : ObjectId("618f26b3152fac149fe54912"), "id" : 1, "title" : "Articulo", "price" : 100 }
+{ "_id" : ObjectId("618f26b3152fac149fe54913"), "id" : 2, "title" : "Articulo", "price" : 200 }
+{ "_id" : ObjectId("618f26b3152fac149fe54914"), "id" : 3, "title" : "Articulo", "price" : 300 }
+{ "_id" : ObjectId("618f26b3152fac149fe54915"), "id" : 4, "title" : "Articulo", "price" : 400 }
+{ "_id" : ObjectId("618f26b3152fac149fe54916"), "id" : 5, "title" : "Articulo", "price" : 500 }
+{ "_id" : ObjectId("618f26b3152fac149fe54917"), "id" : 6, "title" : "Articulo", "price" : 600 }
+{ "_id" : ObjectId("618f26b3152fac149fe54918"), "id" : 7, "title" : "Articulo", "price" : 700 }
+{ "_id" : ObjectId("618f26b3152fac149fe54919"), "id" : 8, "title" : "Articulo", "price" : 800 }
+{ "_id" : ObjectId("618f26b3152fac149fe5491a"), "id" : 9, "title" : "Articulo", "price" : 900 }
+{ "_id" : ObjectId("618f26b3152fac149fe5491b"), "id" : 10, "title" : "Articulo", "price" : 1000 }
+>
+-------------------------------------------------------------------------------------------------------
+3 )Mostrar la cantidad de documentos almacenados en cada una de ellas.
+
+
+> db.mensajes.countDocuments({})
+10
+> db.productos.countDocuments({})
+10
+
+---------------------------------------------------------------------------------------------------------------------
+ Realizar un CRUD sobre la coleccion de productos:
+
+A- Agregar un producto m�s en la colecci�n de productos.
+
+> db.productos.insertOne({id: 11, title: 'Articulo11', price: 1100})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("618f28c4152fac149fe5491c")
+}
+>
+
+B- Realizar una consulta por nombre de producto espec�fico:
+
+
+> db.productos.find({title: 'Articulo11'})
+{ "_id" : ObjectId("618f2926152fac149fe5491d"), "id" : 11, "title" : "Articulo11", "price" : 1100 }
+>
+------------------------------------------------------------------------------------------
+    *Listar los productos con precio menor a 1000 pesos.
+
+ > db.productos.find({title: 'Articulo11'})
+{ "_id" : ObjectId("618f2926152fac149fe5491d"), "id" : 11, "title" : "Articulo11", "price" : 1100 }
+> db.productos.find({price: {$lt:1000}})
+{ "_id" : ObjectId("618f26b3152fac149fe54912"), "id" : 1, "title" : "Articulo", "price" : 100 }
+{ "_id" : ObjectId("618f26b3152fac149fe54913"), "id" : 2, "title" : "Articulo", "price" : 200 }
+{ "_id" : ObjectId("618f26b3152fac149fe54914"), "id" : 3, "title" : "Articulo", "price" : 300 }
+{ "_id" : ObjectId("618f26b3152fac149fe54915"), "id" : 4, "title" : "Articulo", "price" : 400 }
+{ "_id" : ObjectId("618f26b3152fac149fe54916"), "id" : 5, "title" : "Articulo", "price" : 500 }
+{ "_id" : ObjectId("618f26b3152fac149fe54917"), "id" : 6, "title" : "Articulo", "price" : 600 }
+{ "_id" : ObjectId("618f26b3152fac149fe54918"), "id" : 7, "title" : "Articulo", "price" : 700 }
+{ "_id" : ObjectId("618f26b3152fac149fe54919"), "id" : 8, "title" : "Articulo", "price" : 800 }
+{ "_id" : ObjectId("618f26b3152fac149fe5491a"), "id" : 9, "title" : "Articulo", "price" : 900 }
+>
+----------------------------------------------------------------------------------------------
+  *  Listar los productos con precio entre los 1000 a 3000 pesos.
+
+    Resoluci�n
+
+productos.find({$and: [ {price: {$gte:100}}, {price: {$lte:300}}] })
+----------------------------------------------------------------------------------------------
+
+    Listar los productos con precio mayor a 3000 pesos.
+
+db.productos.find({price: {$gt:300}})
+
+   > db.productos.find({price: {$gt:300}})
+{ "_id" : ObjectId("618f26b3152fac149fe54915"), "id" : 4, "title" : "Articulo", "price" : 400 }
+{ "_id" : ObjectId("618f26b3152fac149fe54916"), "id" : 5, "title" : "Articulo", "price" : 500 }
+{ "_id" : ObjectId("618f26b3152fac149fe54917"), "id" : 6, "title" : "Articulo", "price" : 600 }
+{ "_id" : ObjectId("618f26b3152fac149fe54918"), "id" : 7, "title" : "Articulo", "price" : 700 }
+{ "_id" : ObjectId("618f26b3152fac149fe54919"), "id" : 8, "title" : "Articulo", "price" : 800 }
+{ "_id" : ObjectId("618f26b3152fac149fe5491a"), "id" : 9, "title" : "Articulo", "price" : 900 }
+{ "_id" : ObjectId("618f26b3152fac149fe5491b"), "id" : 10, "title" : "Articulo", "price" : 1000 }
+{ "_id" : ObjectId("618f28c4152fac149fe5491c"), "id" : 11, "title" : "Articulo", "price" : 1100 }
+{ "_id" : ObjectId("618f2926152fac149fe5491d"), "id" : 11, "title" : "Articulo11", "price" : 1100 }
+>
+--------------------------------------------------------------------------------------------------
+
+realizar una consulta por el nombre de producto mas baratos
+
+ db.productos.find({},{"title":1}).skip(2).limit(1).sort({price:-1})
+{ "_id" : ObjectId("618f26b3152fac149fe5491b"), "title" : "Articulo" }
+>
+---------------------------------------------------------------------------------------------------
+C- Hacer una actualizaci�n sobre todos los productos, agregando el campo stock a todos ellos con un valor de 100.
+
+   
+> db.productos.updateMany({}, {$set: {stock: 100}})
+{ "acknowledged" : true, "matchedCount" : 12, "modifiedCount" : 0 }
+>
+----------------------------------------------------------------------------------------------------
+
+D- Cambiar el stock a cero de los productos con precios mayores a 4000 pesos.
+
+> db.productos.updateMany({price: {$gt:400}}, {$set: {stock: 0}})
+{ "acknowledged" : true, "matchedCount" : 8, "modifiedCount" : 0 }
+>
+-------------------------------------------------------------------------------------------------------
+E- Borrar los productos con precio menor a 1000 pesos.
+
+> db.productos.deleteMany({price: {$gt:100}})
+{ "acknowledged" : true, "deletedCount" : 11 }
+>
+--------------------------------------------------------------------------------------------------------
+ 6) Crear un usuario 'pepe' clave: 'asd456' que s�lo pueda leer la base de datos ecommerce. Verificar que pepe no pueda cambiar la informaci�n.
+
+db.createUser(
+   {
+     user: "pepe",
+     pasword: "asd456",
+ 
+   }
+)
+------------------------------------------------------------------------------------------------------------
